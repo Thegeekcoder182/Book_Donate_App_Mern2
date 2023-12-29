@@ -40,6 +40,11 @@ app.post("/books", async (req, res) => {
   }
 });
 
+app.get("/", (req, res) => {
+  res.send("Welcome to the Book Donation App!");
+});
+
+
 app.get("/books", async (req, res) => {
   try {
     const books = await Book.find();
