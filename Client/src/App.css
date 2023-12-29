@@ -1,0 +1,93 @@
+/* App.css */
+
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 20px;
+  background-color: #fafafa;
+}
+
+.app {
+  text-align: center;
+  margin: 20px;
+}
+
+h1 {
+  margin-top: 10px;
+  margin-bottom: 20px;
+  color: #1e1e6c;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.dsb {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 20px;
+}
+
+.add_button,
+#dumpStateButton,
+.logoutbutton {
+  margin: 0.8rem;
+  padding: 10px;
+  cursor: pointer;
+  border: none;
+  border-radius: 4px;
+}
+
+.add_button {
+  background-color: #4caf50;
+  color: white;
+}
+
+#dumpStateButton {
+  background-color: #337ab7;
+  color: white;
+}
+
+.logoutbutton {
+  background-color: #e36864;
+  color: white;
+}
+
+.add_button:hover {
+  background-color: #45a049;
+}
+
+#dumpStateButton:hover {
+  background-color: #286090;
+}
+
+.logoutbutton:hover {
+  background-color: #c9302c;
+}
+
+.table_container {
+  overflow-x: auto;
+}
+
+/* Responsive Design */
+
+@media only screen and (max-width: 768px) {
+  .dsb {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .add_button,
+  #dumpStateButton,
+  .logoutbutton {
+    width: 100%;
+  }
+}
+
+@media only screen and (max-width: 480px) {
+  .dsb {
+    align-items: stretch;
+  }
+}

@@ -1,0 +1,34 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.auth{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    flex-wrap: wrap;
+    /* border: 1px solid green; */
+    padding: 1.2rem;
+}
+
+
+.auth>.form{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row;
+    flex-wrap: wrap;
+    /* border: 1px solid green; */
+    gap: 1.6rem;
+
+}
+
+
+.auth>.form>input{
+    padding: 0.4rem;
+    border-radius: 4px;
+
+}

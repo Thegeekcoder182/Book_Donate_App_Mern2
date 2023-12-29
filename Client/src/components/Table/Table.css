@@ -1,0 +1,105 @@
+/* Table.css */
+.table_container {
+  display: flex;
+  justify-content: center;
+}
+
+table {
+  border-collapse: collapse;
+  width: 90%;
+  margin: 20px auto;
+  table-layout: fixed;
+}
+
+table th {
+  background-color: #8cec87;
+  color: #ffffff;
+  padding: 12px;
+}
+
+table th + th {
+  border: 2px solid #000000;
+}
+
+table th,
+table td {
+  border: 1px solid #ddd;
+  padding: 12px;
+  text-align: center;
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+table tr {
+  border: 2px solid #000000;
+}
+
+table td {
+  border: 2px solid #000000;
+}
+
+button {
+  padding: 10px 15px;
+  cursor: pointer;
+  border: none;
+  border-radius: 4px;
+  background-color: #4caf50;
+  color: white;
+  margin-right: 5px;
+}
+
+.add_button {
+  padding: 10px 15px;
+  cursor: pointer;
+  border: none;
+  border-radius: 4px;
+  background-color: #4caf50;
+  color: white;
+  margin-left: 5%;
+}
+
+button:hover {
+  background-color: #45a049;
+}
+
+/* Responsive Design */
+@media only screen and (max-width: 768px) {
+
+  table {
+    width: 100%;
+  }
+
+  .add_button {
+    margin-left: 0;
+    width: 100%;
+    margin-top: 10px;
+    font-size: 12px; /* Adjust the font size for tablet */
+  }
+}
+
+/* Additional media query for smaller screens like mobile phones */
+@media only screen and (max-width: 480px) {
+  
+  table{
+    width: 100%;
+    padding: 0;
+    margin: 0;
+    border: 1px solid green;
+    overflow-y: auto;
+    max-height: 300px; /* Adjust the height as needed */
+  }
+ 
+  table>thead>tr{
+    font-size: 0.6rem;
+    
+  }
+
+  table>tbody>tr>td{
+    font-size: smaller;
+  }
+
+  table>tbody>tr>td>button{
+    font-size: smaller;
+  }
+}
+
