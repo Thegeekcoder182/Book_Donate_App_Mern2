@@ -2,7 +2,7 @@ const express = require("express");
 const mongoose = require("mongoose");
 const bodyParser = require("body-parser");
 const cors = require("cors");
-const Book = require("./models/bookModel");
+const Book = require("../models/bookModel");
 
 const app = express();
 
