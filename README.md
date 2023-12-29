@@ -66,7 +66,9 @@ In the project settings, find and copy the Firebase configuration object.
 Create a .env file in the root of your project and add the following:
 
 makefile
+
 Copy code
+
 REACT_APP_FIREBASE_API_KEY=your-api-key
 REACT_APP_FIREBASE_AUTH_DOMAIN=your-auth-domain
 REACT_APP_FIREBASE_PROJECT_ID=your-project-id
@@ -74,6 +76,7 @@ REACT_APP_FIREBASE_STORAGE_BUCKET=your-storage-bucket
 REACT_APP_FIREBASE_MESSAGING_SENDER_ID=your-messaging-sender-id
 REACT_APP_FIREBASE_APP_ID=your-app-id
 Authentication
+
 Explain how users can authenticate using Firebase. Include any additional setup or configuration required for authentication.
 
 Contributing
