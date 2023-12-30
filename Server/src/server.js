@@ -1,15 +1,19 @@
+// Importing necessary modules
 const express = require("express");
 const mongoose = require("mongoose");
 const bodyParser = require("body-parser");
 const cors = require("cors");
-const Book = require("../models/bookModel");
+const Book = require("../models/bookModel"); // Importing the Book model
 
+// Initializing the Express app
 const app = express();
 
-app.use(cors());
-app.use(bodyParser.json());
-app.use(express.static("public"));
+// Middleware setup
+app.use(cors()); // Enable CORS
+app.use(bodyParser.json()); // Parse JSON requests
+app.use(express.static("public")); // Serve static files from the 'public' directory
 
+// Connecting to MongoDB
 mongoose
   .connect(
     "mongodb+srv://ayanbarai185:anik4194@cluster0.us7pexp.mongodb.net/?retryWrites=true&w=majority",
@@ -18,6 +22,7 @@ mongoose
   .then(() => console.log("Connected to MongoDB"))
   .catch((err) => console.error("Error connecting to MongoDB:", err));
 
+// POST endpoint to add a new book
 app.post("/books", async (req, res) => {
   try {
     console.log("Received request to add a book:", req.body);
@@ -27,9 +32,11 @@ app.post("/books", async (req, res) => {
       return res.status(400).json({ error: "All fields are required" });
     }
 
+    // Creating a new Book instance
     const book = new Book({ title, author, genre, year, isbn, user });
     console.log("Book object created:", book);
 
+    // Saving the book to the database
     const savedBook = await book.save();
     console.log("Book saved successfully:", savedBook);
 
@@ -40,13 +47,10 @@ app.post("/books", async (req, res) => {
   }
 });
 
-app.get("/", (req, res) => {
-  res.send("Welcome to the Book Donation App!");
-});
-
-
+// GET endpoint to retrieve all books
 app.get("/books", async (req, res) => {
   try {
+    // Fetching all books from the database
     const books = await Book.find();
     res.json(books);
   } catch (error) {
@@ -54,10 +58,13 @@ app.get("/books", async (req, res) => {
   }
 });
 
+// PUT endpoint to update a book by ID
 app.put("/books/:id", async (req, res) => {
   try {
     const { id } = req.params;
     const { title, author, genre, year, isbn } = req.body;
+
+    // Updating the book in the database
     const updatedBook = await Book.findByIdAndUpdate(
       id,
       { title, author, genre, year, isbn },
@@ -69,9 +76,12 @@ app.put("/books/:id", async (req, res) => {
   }
 });
 
+// DELETE endpoint to delete a book by ID
 app.delete("/books/:id", async (req, res) => {
   try {
     const { id } = req.params;
+
+    // Deleting the book from the database
     const deletedBook = await Book.findByIdAndDelete(id);
     res.json(deletedBook);
   } catch (error) {
@@ -79,6 +89,7 @@ app.delete("/books/:id", async (req, res) => {
   }
 });
 
+// Setting up the server to listen on the specified port
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => {
   console.log(`Server is running on http://localhost:${PORT}`);
