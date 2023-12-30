@@ -1,13 +1,17 @@
+// Importing necessary modules and styles
 import React, { useState } from 'react';
 import './Form.css';
 
+// Form component for user data input
 const Form = ({ onSubmit, onAddClick, onDumpStateClick, setUserData }) => {
+  // State to manage form data (name, email, phone)
   const [formData, setFormData] = useState({
     name: '',
     email: '',
     phone: '',
   });
 
+  // Function to handle input changes in the form
   const handleChange = (e) => {
     setFormData({
       ...formData,
@@ -15,10 +19,14 @@ const Form = ({ onSubmit, onAddClick, onDumpStateClick, setUserData }) => {
     });
   };
 
+  // Function to handle form submission
   const handleSubmit = (e) => {
     e.preventDefault();
+    // Call the provided onSubmit function with form data
     onSubmit(formData);
+    // Update user data with the form data
     setUserData(formData);
+    // Clear the form data after submission
     setFormData({
       name: '',
       email: '',
@@ -26,8 +34,10 @@ const Form = ({ onSubmit, onAddClick, onDumpStateClick, setUserData }) => {
     });
   };
 
+  // Rendering the Form component
   return (
     <form id="userForm" onSubmit={handleSubmit}>
+      {/* Name input field */}
       <label htmlFor="userName">Name:</label>
       <input
         type="text"
@@ -38,6 +48,7 @@ const Form = ({ onSubmit, onAddClick, onDumpStateClick, setUserData }) => {
         required
       />
 
+      {/* Email input field */}
       <label htmlFor="userEmail">Email:</label>
       <input
         type="email"
@@ -48,6 +59,7 @@ const Form = ({ onSubmit, onAddClick, onDumpStateClick, setUserData }) => {
         required
       />
 
+      {/* Phone input field */}
       <label htmlFor="userPhone">Phone:</label>
       <input
         type="text"
@@ -58,6 +70,7 @@ const Form = ({ onSubmit, onAddClick, onDumpStateClick, setUserData }) => {
         required
       />
 
+      {/* Button container with Submit, Add, and Dump State to JSON buttons */}
       <div className="button-container">
         <button type="submit">Submit</button>
         <button type="button" onClick={onAddClick}>
@@ -71,4 +84,5 @@ const Form = ({ onSubmit, onAddClick, onDumpStateClick, setUserData }) => {
   );
 };
 
+// Exporting the Form component
 export default Form;
