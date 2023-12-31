@@ -10,7 +10,7 @@ const app = express();
 
 // Middleware setup
 app.use(cors()); // Enable CORS
-app.use(bodyParser.json()); // Parse JSON requests
+app.use(bodyParser.json()) ; // Parse JSON requests
 app.use(express.static("public")); // Serve static files from the 'public' directory
 
 // Connecting to MongoDB
